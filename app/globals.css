@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 247 249 251;
+  --surface: 255 255 255;
+  --surface-muted: 236 240 243;
+  --surface-strong: 225 231 238;
+  --foreground: 18 27 43;
+  --muted-foreground: 77 91 110;
+  --primary: 7 126 164;
+  --primary-dark: 6 85 111;
+  --accent: 137 245 231;
+  --accent-foreground: 0 38 35;
+  --ring: 7 126 164;
+  --border: 205 214 223;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(137, 245, 231, 0.14), transparent 24%),
+    linear-gradient(180deg, rgb(var(--background)) 0%, rgb(245 247 249) 100%);
+  color: rgb(var(--foreground));
+}
+
+::selection {
+  background: rgba(137, 245, 231, 0.7);
+  color: rgb(var(--accent-foreground));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl font-extrabold tracking-tight text-slate-950 md:text-4xl;
+  }
+
+  .section-kicker {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-slate-500;
+  }
+
+  .surface-card {
+    @apply rounded-3xl border border-slate-200/80 bg-white/90 shadow-[0_18px_80px_-36px_rgba(15,23,42,0.35)] backdrop-blur;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-cyan-100 bg-cyan-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-700;
+  }
+}
